@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Misión SST - Ganadería Enmayura</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+background:#f4f6f8;
+margin:0;
+padding:0;
+}
+
+header{
+background:#2e7d32;
+color:white;
+padding:25px;
+text-align:center;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+margin:15px 0;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+h2{
+color:#2e7d32;
+}
+
+input[type=text]{
+width:100%;
+padding:12px;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+label{
+display:block;
+margin:10px 0;
+}
+
+button{
+background:#2e7d32;
+color:white;
+border:none;
+padding:15px 25px;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+}
+
+button:hover{
+background:#1b5e20;
+}
+
+#resultado{
+display:none;
+background:#fff8e1;
+padding:20px;
+border-radius:10px;
+margin-top:20px;
+}
+
+#certificado{
+display:none;
+background:white;
+border:5px solid #2e7d32;
+border-radius:15px;
+padding:40px;
+margin-top:30px;
+text-align:center;
+}
+
+.cert-title{
+font-size:32px;
+font-weight:bold;
+color:#2e7d32;
+}
+
+.nombre{
+font-size:30px;
+font-weight:bold;
+margin:20px 0;
+}
+
+.puntaje{
+font-size:22px;
+font-weight:bold;
+color:#1565c0;
+}
+
+.imprimir{
+background:#1565c0;
+margin-top:20px;
+}
+
+.firmas{
+display:flex;
+justify-content:space-around;
+margin-top:50px;
+}
+
+@media print{
+
+button{
+display:none;
+}
+
+body{
+background:white;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>🐄 Misión SST en la Ganadería Enmayura</h1>
+
+<h3>
+Deberes de los trabajadores según el Decreto 1072 de 2015
+</h3>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Datos del Participante</h2>
+
+<input type="text" id="nombre"
+placeholder="Ingrese su nombre completo">
+
+</div>
+
+<div class="card">
+
+<h3>1. Cuidado integral de la salud</h3>
+
+<p>
+Juan presenta mareo durante el arreo de búfalos.
+¿Qué debe hacer?
+</p>
+
+<label>
+<input type="radio" name="p1" value="0">
+Continuar trabajando.
+</label>
+
+<label>
+<input type="radio" name="p1" value="0">
+Esperar hasta finalizar la jornada.
+</label>
+
+<label>
+<input type="radio" name="p1" value="10">
+Informar la situación e hidratarse.
+</label>
+
+</div>
+
+<div class="card">
+
+<h3>2. Informar el estado de salud</h3>
+
+<p>
+María presenta antecedentes de lesión lumbar.
+</p>
+
+<label>
+<input type="radio" name="p2" value="0">
+Ocultar la información.
+</label>
+
+<label>
+<input type="radio" name="p2" value="10">
+Informar la condición de salud.
+</label>
+
+<label>
+<input type="radio" name="p2" value="0">
+Esperar una recaída.
+</label>
+
+</div>
+
+<div class="card">
+
+<h3>3. Cumplir las normas del SG-SST</h3>
+
+<p>
+Pedro manipulará productos químicos.
+</p>
+
+<label>
+<input type="radio" name="p3" value="0">
+No utilizar protección.
+</label>
+
+<label>
+<input type="radio" name="p3" value="0">
+Usar únicamente guantes.
+</label>
+
+<label>
+<input type="radio" name="p3" value="10">
+Utilizar todos los EPP requeridos.
+</label>
+
+</div>
+
+<div class="card">
+
+<h3>4. Reportar condiciones inseguras</h3>
+
+<p>
+Ana encuentra una cerca eléctrica sin señalización.
+</p>
+
+<label>
+<input type="radio" name="p4" value="10">
+Reportarla inmediatamente.
+</label>
+
+<label>
+<input type="radio" name="p4" value="0">
+Ignorarla.
+</label>
+
+<label>
+<input type="radio" name="p4" value="0">
+Esperar un accidente.
+</label>
+
+</div>
+
+<div class="card">
+
+<h3>5. Participación en capacitaciones</h3>
+
+<p>
+Se programa una capacitación sobre SST.
+</p>
+
+<label>
+<input type="radio" name="p5" value="10">
+Participar activamente.
+</label>
+
+<label>
+<input type="radio" name="p5" value="0">
+No asistir.
+</label>
+
+<label>
+<input type="radio" name="p5" value="0">
+Enviar otro compañero.
+</label>
+
+</div>
+
+<div class="card">
+
+<h3>6. Participar en los objetivos del SG-SST</h3>
+
+<p>
+La empresa desarrolla una campaña preventiva.
+</p>
+
+<label>
+<input type="radio" name="p6" value="10">
+Participar activamente.
+</label>
+
+<label>
+<input type="radio" name="p6" value="0">
+Actuar solo cuando ocurra un accidente.
+</label>
+
+<label>
+<input type="radio" name="p6" value="0">
+Dejar la responsabilidad al encargado SST.
+</label>
+
+</div>
+
+<center>
+
+<button onclick="calcular()">
+
+🏆 Calcular Resultado
+
+</button>
+
+</center>
+
+<div id="resultado"></div>
+
+<div id="certificado">
+
+<div class="cert-title">
+CERTIFICADO DE PARTICIPACIÓN
+</div>
+
+<h2>GANADERÍA ENMAYURA</h2>
+
+<p>Certifica que:</p>
+
+<div class="nombre" id="nombreCert"></div>
+
+<p>
+Participó satisfactoriamente en la actividad:
+</p>
+
+<h3>
+MISIÓN SST: DEBERES DE LOS TRABAJADORES SEGÚN EL DECRETO 1072 DE 2015
+</h3>
+
+<p class="puntaje" id="puntajeFinal"></p>
+
+<p id="nivelFinal"></p>
+
+<p>
+<strong>Fecha de emisión:</strong>
+<span id="fechaCert"></span>
+</p>
+
+<div class="firmas">
+
+<div>
+_________________________<br>
+Responsable SG-SST
+</div>
+
+<div>
+_________________________<br>
+Participante
+</div>
+
+</div>
+
+<button class="imprimir"
+onclick="window.print()">
+
+📄 Guardar Certificado en PDF
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function calcular(){
+
+let total = 0;
+
+const preguntas = [
+"p1","p2","p3",
+"p4","p5","p6"
+];
+
+for(let pregunta of preguntas){
+
+let respuesta =
+document.querySelector(
+`input[name="${pregunta}"]:checked`
+);
+
+if(!respuesta){
+
+alert(
+"Debe responder todas las preguntas."
+);
+
+return;
+
+}
+
+total += Number(respuesta.value);
+
+}
+
+let nivel = "";
+let mensaje = "";
+
+if(total >= 50){
+
+nivel = "🌟 EXCELENTE";
+
+mensaje =
+"Demuestra un excelente compromiso con la Seguridad y Salud en el Trabajo.";
+
+}
+else if(total >= 30){
+
+nivel = "👍 BUENO";
+
+mensaje =
+"Presenta conocimientos adecuados sobre los deberes del SG-SST.";
+
+}
+else{
+
+nivel =
+"📚 REQUIERE FORTALECIMIENTO";
+
+mensaje =
+"Se recomienda reforzar los conocimientos relacionados con SST.";
+
+}
+
+document.getElementById(
+"resultado"
+).style.display = "block";
+
+document.getElementById(
+"resultado"
+).innerHTML =
+
+`<h2>🏆 Resultado Final</h2>
+<h3>Puntaje: ${total} de 60</h3>
+<h3>${nivel}</h3>
+<p>${mensaje}</p>`;
+
+let nombre =
+document.getElementById("nombre")
+.value.trim();
+
+if(nombre===""){
+
+nombre="Participante";
+
+}
+
+document.getElementById(
+"certificado"
+).style.display="block";
+
+document.getElementById(
+"nombreCert"
+).innerText = nombre;
+
+document.getElementById(
+"puntajeFinal"
+).innerText =
+"Puntaje obtenido: "
++ total +
+" de 60 puntos";
+
+document.getElementById(
+"nivelFinal"
+).innerText =
+"Clasificación: " +
+nivel;
+
+let hoy = new Date();
+
+let fecha =
+hoy.getDate().toString().padStart(2,'0')
++
+"/"
++
+(hoy.getMonth()+1)
+.toString().padStart(2,'0')
++
+"/"
++
+hoy.getFullYear();
+
+document.getElementById(
+"fechaCert"
+).innerText = fecha;
+
+document.getElementById(
+"certificado"
+).scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+</script>
+
+</body>
+</html>
